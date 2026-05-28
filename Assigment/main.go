@@ -18,4 +18,20 @@ func main() {
 	fmt.Println("Marks: ", mark1, mark2, mark3)
 	fmt.Println("Total: ", totalMarks, "/300")
 	fmt.Println("Percentage: ", percentage)
+
+	scores := make([]int, 0, 4)
+	scores = append(scores, 85, 92, 78, 95)
+	fmt.Println(len(scores))
+	fmt.Println(cap(scores))
+
+	scores = append(scores, 88)
+	fmt.Println(len(scores))
+	fmt.Println(cap(scores))
+
+	slicedScores := scores[1:4]
+	fmt.Println(slicedScores)
+
+	slicedScores[0] = 999
+	fmt.Println(scores)
+	fmt.Println(slicedScores)
 }
