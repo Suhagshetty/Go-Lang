@@ -34,4 +34,39 @@ func main() {
 	slicedScores[0] = 999
 	fmt.Println(scores)
 	fmt.Println(slicedScores)
+
+	// 1. Create map with 5 contacts
+	phoneBook := map[string]string{
+		"Alice": "123-456-7890",
+		"Bob":   "987-654-3210",
+		"Carol": "555-123-4567",
+		"David": "444-987-6543",
+		"Eve":   "333-111-2222",
+	}
+
+	// 2. Print one contact
+	fmt.Println("Alice:", phoneBook["Alice"])
+
+	// 3. Safe lookup for missing contact
+	val, ok := phoneBook["Zara"]
+	if ok {
+		fmt.Println("Zara:", val)
+	} else {
+		fmt.Println("Zara not found")
+	}
+
+	// 4. Delete one contact + print count
+	delete(phoneBook, "Bob")
+	fmt.Println("Total contacts:", len(phoneBook))
+
+	// 5. Loop through all contacts
+	for name, number := range phoneBook {
+		fmt.Println(name, "→", number)
+	}
+
+	// Bonus — delete only if exists
+	if _, ok := phoneBook["David"]; ok {
+		delete(phoneBook, "David")
+		fmt.Println("David deleted")
+	}
 }
